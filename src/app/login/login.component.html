@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LTI - Larsen & Toubro Infotech</title>
+    <!-- <link rel="stylesheet" href="main.css" /> -->
+  </head>
+
+  <body>
+    <!-- <div class="header">
+      <h1>Welcome to LTI</h1>
+    </div>
+
+    <div class="topnav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li>
+          <img
+            src="assets/lti.PNG"
+            style="float: right; padding-right: 20px; height: 50px"
+          />
+        </li>
+      </ul>
+    </div> -->
+
+    <div class="main">
+      <div class="card">
+        <h2 style="text-align: center;">Login to a world of opportunities!</h2>
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+                <div class="container">
+                  <label for="uname"><b>Username</b></label>
+                  <!-- <input type="text" placeholder="Enter Username" name="uname" required>
+                   -->
+                    <!-- <label for="firstname">First Name </label> -->
+                    <input type="text" placeholder="Enter Username"  id="uname" name="uname" required #uname="ngModel"
+                      [(ngModel)]="contact.uname">
+
+                  <div *ngIf="!uname?.valid && (uname?.dirty || uname?.touched)" class="error">
+                    <div *ngIf="uname.errors.required">
+                      User Name is required
+                    </div>
+                    </div>
+
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" id="psw" placeholder="Enter Password" name="psw" required
+                  #psw="ngModel"   [(ngModel)]="contact.psw">
+              
+                  
+        <!-- <input type="text" id="lastname" name="lastname" required maxlength="15" #lastname="ngModel" 
+                pattern="^[a-zA-Z]+$"  [(ngModel)]="contact.lastname"> -->
+      
+      <div *ngIf="!psw?.valid && (psw?.dirty || psw?.touched)" class="error">
+        <div *ngIf="psw.errors.required">
+          Password is required
+        </div>
+        </div>
+          <button type="submit" [disabled]="!contactForm.valid">Login</button>
+        
+                  <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                  </label>
+                </div>
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw"> <a href="#">Forgot password?</a></span>
+                  </div>
+                  <!-- <p>{{contactForm.valid}} </p> -->
+              </form>
+      </div>
+      
+    </div>
+
+    <!-- <div class="footer">
+        <p>© 2020 Larsen & Toubro Infotech Limited</p>
+        
+      </div>  -->
+
+  </body>
+</html>

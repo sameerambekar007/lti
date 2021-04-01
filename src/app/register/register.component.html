@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LTI - Larsen & Toubro Infotech</title>
+    <!-- <link rel="stylesheet" href="main.css" /> -->
+  </head>
+
+  <body>
+    <!-- <div class="header">
+      <h1>Welcome to LTI</h1>
+    </div>
+
+    <div class="topnav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li>
+          <img
+            src="C:\Users\devil\Desktop\LTI\Web Technologies\Mini Project\images\lti.jpg"
+            style="float: right; padding-right: 20px; height: 50px"
+          />
+        </li>
+      </ul>
+    </div> -->
+
+    <div class="main">
+      <div class="card">
+        <h2 style="text-align: center;">Register to explore amazing career opportunities</h2>
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+          <!-- {{name.className}} -->
+      
+                <div class="container">
+                  <label for="uname"><b>Username</b></label>
+                  <!-- <input type="text" placeholder="Enter Username" name="uname" required>
+                   -->
+                    <!-- <label for="firstname">First Name </label> -->
+                    <input type="text" placeholder="Enter Username"  id="uname" name="uname" required minlength="10" #uname="ngModel"
+                      [(ngModel)]="contact.uname">
+
+                  <div *ngIf="!uname?.valid && (uname?.dirty || uname?.touched)" class="error">
+                    <div *ngIf="uname.errors.required">
+                      Username is required
+                    </div>
+
+                    <div *ngIf="uname.errors.minlength">
+                      Username Minimum Length should be {{uname.errors.minlength?.requiredLength}}
+                    </div>
+                  </div>
+              
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" id="psw" placeholder="Enter Password" name="psw" required minlength="10"
+                  #psw="ngModel"   [(ngModel)]="contact.psw">
+              
+                  
+        <!-- <input type="text" id="lastname" name="lastname" required maxlength="15" #lastname="ngModel" 
+                pattern="^[a-zA-Z]+$"  [(ngModel)]="contact.lastname"> -->
+      
+      <div *ngIf="!psw?.valid && (psw?.dirty || psw?.touched)" class="error">
+        <div *ngIf="psw.errors.required">
+          Password is required
+        </div>
+        <div *ngIf="psw.errors.minlength">
+          Password Minimum Length should be {{psw.errors.minlength?.requiredLength}}
+        </div>
+      </div>        
+
+                  <label for="email"><b>Email Address</b></label>
+                  <!-- <input type="email" placeholder="Enter Email Address" name="email" required>
+              
+                    <label for="email">email </label> -->
+                    <input type="text" id="email" placeholder="Enter email address" name="email" required email #email="ngModel" [(ngModel)]="contact.email">
+                  
+                  <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+                    <div *ngIf="email.errors.required">
+                      Email is required
+                    </div>
+                    <div *ngIf="email.errors.email">
+                      Invalid Email Address
+                    </div>
+                  </div>
+<!-- 
+                  <label for="city"><b>City</b></label>
+                  <input type="text" placeholder="Enter City" name="city" required> -->
+                  <label for="city"><b>City</b></label>
+                  <!-- <input type="text" placeholder="Enter Username" name="uname" required>
+                   -->
+                    <!-- <label for="firstname">First Name </label> -->
+                    <input type="text" placeholder="Enter City"  id="city" name="city" required #city="ngModel"
+                      [(ngModel)]="contact.city">
+
+                  <div *ngIf="!city?.valid && (city?.dirty || city?.touched)" class="error">
+                    <div *ngIf="city.errors.required">
+                      City is required
+                    </div>
+                  </div>
+
+                  <label for="mobile"><b>Mobile number</b></label>
+                  <!-- <input type="text" placeholder="Enter Username" name="uname" required>
+                   -->
+                    <!-- <label for="firstname">First Name </label> -->
+                    <input type="text" placeholder="Enter Mobile number"  id="mobile" name="mobile" required minlength="10" maxlength="10" #mobile="ngModel"
+                    pattern="[789][0-9]+$"  [(ngModel)]="contact.mobile">
+
+                  <div *ngIf="!mobile?.valid && (mobile?.dirty || mobile?.touched)" class="error">
+                    <div *ngIf="mobile.errors.required">
+                      Mobile number is required
+                    </div>
+                  <div *ngIf="mobile.errors.pattern">
+                    Only numbers are allowed and mobile number should start with 7, 8 or 9
+                  </div>  
+                    <div *ngIf="mobile.errors.minlength">
+                    Mobile number Length should be {{mobile.errors.minlength?.requiredLength}}
+                  </div> 
+                   <div *ngIf="mobile.errors.maxlength">
+                    Mobile number Length should be {{mobile.errors.maxlength?.requiredLength}}
+                  </div> 
+
+ 
+                </div>
+                  <!-- <div *ngIf="mobile.errors.minlength">
+                    Mobile number Length is {{mobile.errors.minlength?.requiredLength}}
+                  </div> -->
+                  <!-- <div *ngIf="mobile.errors.maxlength">
+                    Mobile number Length is {{mobile.errors.maxlength?.requiredLength}}
+                  </div> -->
+                  
+                  <!-- <div *ngIf="mobile.errors.pattern">
+                    Only numbers are allowed
+                  </div> -->
+          <p>
+            <button type="submit" [disabled]="!contactForm.valid">Register</button>
+          </p>
+         
+          <p>{{contactForm.valid}} </p>
+         
+      
+        </div>
+      </form>
+      </div>
+      
+    </div>
+
+    <!-- <div class="footer">
+        <p>© 2020 Larsen & Toubro Infotech Limited</p>
+        
+      </div>  -->
+
+  </body>
+</html>
